@@ -19,7 +19,7 @@ namespace Polynomials.Classes.Formula
                 tmp[0] = tmp[0].Replace("*", "");
                 tmp[0] = tmp[0].Replace(".", ",");
                 if (tmp[0].Length == 0) tmp[0] = "1";
-                else if (tmp[0].ElementAt(0) == '-') tmp[0] = "-1";
+                else if (tmp[0].Length == 1 && tmp[0].ElementAt(0) == '-') tmp[0] = "-1";
                 tmp[1] = tmp[1].Replace("^", "");
                 if (tmp[1].Length == 0) tmp[1] = "1";
                 if (tmp.Length > 1)

@@ -60,32 +60,35 @@ namespace Polynomials
             //drawing graph
             if (formula == null) return;
             double k = 1.0 / scale;
-            int start = 0;
-            int prevY=0xffffff;
-            while (prevY == 0xffffff && start < flp.Width) {
-                try
-                {
-                    prevY = Convert.ToInt32(-1 * formula.exec((start++ - flp.Width / 2) * k) * scale + flp.Height / 2);
-                }
-                catch (OverflowException)
-                {
-                    //no need to worry, skip this value
-                }
-            }
-            for (int x = start; x < flp.Width; x++)
+            int prevY = Convert.ToInt32(-1 * formula.exec(0) * scale + flp.Height / 2);
+            for (int x = flp.Width / 2; x < flp.Width; x++)
             {
                 try
                 {
                     int y = Convert.ToInt32(-1 * formula.exec((x - flp.Width / 2) * k) * scale + flp.Height / 2);
                     g.DrawLine(mainPen, x - 1, prevY, x, y);
                     prevY = y;
+                }
+                catch (OverflowException)
+                {
+                    //no need to worry, skip this value
+                    break;
+                }
+            }
+            prevY = Convert.ToInt32(-1 * formula.exec(0) * scale + flp.Height / 2);
+            for (int x = flp.Width/2; x > 0; x--)
+            {
+                try
+                {
+                    int y = Convert.ToInt32(-1 * formula.exec((x - flp.Width / 2) * k) * scale + flp.Height / 2);
+                    g.DrawLine(mainPen, x + 1, prevY, x, y);
+                    prevY = y;
                 } catch(OverflowException)
                 {
                     //no need to worry, skip this value
+                    break;
                 }
             }
-            double x1 = formula.exec(0.0);
-            return;
         }
 
         private void scaleChange(object sender, EventArgs e)
