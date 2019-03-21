@@ -1,0 +1,5 @@
+﻿Polynominals is a simple program to draw graph of the function
+
+.NET Framework 4.5.0 is required 
+
+In current version, you have to use formula syntax: a1*x^n1+a2*x^n2+...
