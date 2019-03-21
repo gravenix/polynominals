@@ -87,5 +87,12 @@ namespace Polynomials
             double x1 = formula.exec(0.0);
             return;
         }
+
+        private void scaleChange(object sender, EventArgs e)
+        {
+            NumericUpDown numeric = (NumericUpDown)sender;
+            scale = (int)numeric.Value;
+            PanelDrawing.Refresh();
+        }
     }
 }
