@@ -94,5 +94,10 @@ namespace Polynomials
             scale = (int)numeric.Value;
             PanelDrawing.Refresh();
         }
+
+        private void keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) drawBtn.PerformClick();
+        }
     }
 }

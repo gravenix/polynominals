@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.formulaBox = new System.Windows.Forms.TextBox();
             this.drawBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +44,7 @@
             this.formulaBox.Name = "formulaBox";
             this.formulaBox.Size = new System.Drawing.Size(827, 20);
             this.formulaBox.TabIndex = 0;
+            this.formulaBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             // 
             // drawBtn
             // 
@@ -117,6 +119,7 @@
             this.Controls.Add(this.drawBtn);
             this.Controls.Add(this.formulaBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Polynomials";
